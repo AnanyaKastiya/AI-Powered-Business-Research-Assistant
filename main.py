@@ -86,9 +86,20 @@ def get_llm_and_embeddings():
     Automatically detects configured API keys from the .env file.
     Prefers Groq (free & ultra-fast) or OpenAI, Gemini.
     """
-    groq_key = os.getenv("GROQ_API_KEY", "").strip()
-    openai_key = os.getenv("OPENAI_API_KEY", "").strip()
-    gemini_key = (os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY") or "").strip()
+    # Check environment variable first, then fallback to Streamlit Cloud Secrets
+    def fetch_secret(name):
+        val = os.getenv(name, "").strip()
+        if not val and hasattr(st, "secrets"):
+            try:
+                if name in st.secrets:
+                    val = str(st.secrets[name]).strip()
+            except Exception:
+                pass
+        return val
+
+    groq_key = fetch_secret("GROQ_API_KEY")
+    openai_key = fetch_secret("OPENAI_API_KEY")
+    gemini_key = fetch_secret("GEMINI_API_KEY") or fetch_secret("GOOGLE_API_KEY")
 
     if groq_key:
         from langchain_groq import ChatGroq

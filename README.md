@@ -1,5 +1,10 @@
 # 🏢 AI-Powered Business Research Assistant
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-powered-business-research-agent.streamlit.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit%20Cloud-FF4B4B?style=flat&logo=streamlit)](https://ai-powered-business-research-agent.streamlit.app/)
+
+> 🚀 **Live Application:** [https://ai-powered-business-research-agent.streamlit.app/](https://ai-powered-business-research-agent.streamlit.app/)
+
 An intelligent, retrieval-augmented business analysis assistant that takes a company website and recent market articles, indexes them into a FAISS vector database, and generates an executive research report with company overviews, key developments, potential business challenges, and targeted capability recommendations—followed by an interactive follow-up Q&A chatbot.
 
 ---
@@ -119,7 +124,11 @@ GROQ_API_KEY=your_groq_api_key_here
 
 ## 🖥️ Running the Application
 
-### 1. Launch the Streamlit Dashboard
+### 🌐 Live Web Application
+Try the deployed application in your browser:
+👉 **[https://ai-powered-business-research-agent.streamlit.app/](https://ai-powered-business-research-agent.streamlit.app/)**
+
+### 💻 Running Locally
 ```bash
 python -m streamlit run main.py
 ```
