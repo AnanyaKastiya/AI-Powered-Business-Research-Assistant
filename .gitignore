@@ -1,0 +1,20 @@
+# Environment variables and API keys
+.env
+*.env
+
+# FAISS Vector Index
+faiss_business_research_index/
+*.pkl
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Streamlit
+.streamlit/
